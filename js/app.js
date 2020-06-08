@@ -13,24 +13,10 @@ items.forEach((items,i) => {
   nav_bar.appendChild (nav_item);
 });
 
-$(document).ready(function(){
-  $("a").on('click', function(event) {
-    if (this.hash !== "") {
-    event.preventDefault();
-      var hash = this.hash;
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-        window.location.hash = hash;
-        nav_bar.setAttribute('class', "nav_bar hidden")
-      });
-    }
-  });
-});
 
 document.addEventListener ('scroll', function () {
   nav_bar.setAttribute ('class', "nav_bar active");
     setTimeout(function(){
         nav_bar.setAttribute ('class', "nav_bar hidden");
-    }, 1600);
+    }, 2600);
 });
