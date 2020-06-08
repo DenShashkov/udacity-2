@@ -10,6 +10,12 @@ h1 {
   color: #1F2932;
 }
 
+@media (max-width: 480px) {
+  .nav_link {
+    font-size: 0.8em;
+  }
+}
+
 a {
   color: #1F2932;
 }
