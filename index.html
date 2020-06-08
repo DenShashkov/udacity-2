@@ -15,68 +15,69 @@
 <ul class="nav_bar active">
 </ul>
 
-<ul class="content">
-  <li class="content_item hover light_back" id="1">
-    <p class="name_in_the_menu">Home</p>
-    <h1>What is it?</h1>
-    <p class="content_text">This is a little website project using Javascript to generate navigation bar on the fly.</p>
-    <p class="content_text">For this project I've used both my code from the scratch (HTML, CSS, navigation bar generation and behaviour) and jQuery code for smooth scroll animation from w3school.com.</p>
-    <p class="content_text">The reason for using imported code is to practice looking for ready solutions instead of wasting time re-inventing the bycicle.</p>
-    <p class="content_text">I've also used Udacity design system for coloring and style.</p>
-  </li>
-  <li class="content_item dark_back" id="2">
-    <p class="name_in_the_menu">Navbar</p>
-    <h1>Navigation bar generation</h1>
-    <p class="content_text">First, I'm extracting all page section elements into array called "items" and assign "nav_bar" variable to an empty unordered list element which is going to become our navigation bar</p>
-    <blockquote class="content_code">
-      const items = Array.from(document.querySelectorAll('.content_item'));<br>
-      const nav_bar = document.querySelector('.nav_bar');
-    </blockquote>
-    <p class="content_text">After, I'm running following loop to create one list element in navigation unordered list for each section of the page, and assign its content accordingly. Also I'm assigning link class and href parameters dynamically as the loop goes.</p>
-    <blockquote class="content_code">
-        items.forEach((items,i) => <br>
-        &emsp;const name = items.querySelector('.name_in_the_menu');<br>
-        &emsp;const nav_item = document.createElement ('li');<br>
-        &emsp;const nav_item_a = document.createElement ('a');<br>
-        &emsp;const nav_item_a_href = `#${i+1}`;<br>
-        &emsp;const nav_item_a_class = `nav_link`;<br>
-        &emsp;nav_item_a.textContent = name.textContent;<br>
-        &emsp;nav_item_a.setAttribute ('href', nav_item_a_href);<br>
-        &emsp;nav_item_a.setAttribute ('class', nav_item_a_class);<br>
-        &emsp;nav_item.appendChild (nav_item_a);<br>
-        &emsp;nav_bar.appendChild (nav_item);<br>
-        });<br>
-    </blockquote>
-  </li>
-  <li class="content_item light_back" id="3">
-    <p class="name_in_the_menu">Scroll</p>
-    <h1>Scroll effects</h1>
-    <p class="content_text">For smooth scrolling effect I'm using <a href="https://www.w3schools.com/html/html_quotation_elements.asp" target="_blank">third party code from w3school.com</a></p>
-    <p class="content_text">I could've just used <u>scroll-behavior: smooth</u> CSS property but it is not completely browser compatible. This code uses <a href="https://jquery.com/" target="_blank">jQuery library</a> so i need to include it in my main html file</p>
-    <blockquote class="content_code">
-      script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-    </blockquote>
-    <p class="content_text">After click on navigation menu item following lines set navigation bar class to "hidden"</p>
-    <blockquote class="content_code">
-    const nav_bar = document.querySelector('.nav_bar');<br>
-    nav_bar.setAttribute('class', "nav_bar hidden")
-    </blockquote>
-  </li>
-  <li class="content_item dark_back" id="4">
-    <p class="name_in_the_menu">Hover</p>
-    <h1>Making menu visible while scrolling</h1>
-    <p class="content_text">I'm using event listener to find out if page is being scrolled and dynamically assign class "active" to navigation bar if so</p>
-    <p class="content_text">Another function, assigning class "hidden" to navigation bar is run with 1600 ms timeout to hide menu when user is not scrolling the page</p>
-    <blockquote class="content_code">
-    document.addEventListener ('scroll', function () {<br>
-    &emsp;nav_bar.setAttribute ('class', "nav_bar active");<br>
-    &emsp;&emsp;setTimeout(function(){<br>
-    &emsp;&emsp;&emsp;nav_bar.setAttribute ('class', "nav_bar hidden");<br>
-    &emsp;&emsp;}, 1600);<br>
+<section class="content_item hover light_back" id="section1">
+  <p class="name_in_the_menu">Home</p>
+  <h1>What is it?</h1>
+  <p class="content_text">This is a little website project using Javascript to generate navigation bar on the fly.</p>
+  <p class="content_text">For this project I've used both my code from the scratch (HTML, CSS, navigation bar generation and behaviour) and jQuery code for smooth scroll animation from w3school.com.</p>
+  <p class="content_text">The reason for using imported code is to practice looking for ready solutions instead of wasting time re-inventing the bycicle.</p>
+  <p class="content_text">I've also used Udacity design system for coloring and style.</p>
+</section>
+<section class="content_item dark_back" id="section2">
+  <p class="name_in_the_menu">Navbar</p>
+  <h1>Navigation bar generation</h1>
+  <p class="content_text">First, I'm extracting all page section elements into array called "items" and assign "nav_bar" variable to an empty unordered list element which is going to become our navigation bar</p>
+  <blockquote class="content_code">
+    const items = Array.from(document.querySelectorAll('.content_item'));<br>
+    const nav_bar = document.querySelector('.nav_bar');
+  </blockquote>
+  <p class="content_text">After, I'm running following loop to create one list element in navigation unordered list for each section of the page, and assign its content accordingly. Also I'm assigning link class and href parameters dynamically as the loop goes.</p>
+  <blockquote class="content_code">
+      items.forEach((items,i) => {<br>
+      &emsp;const name = items.querySelector('.name_in_the_menu');<br>
+      &emsp;const nav_item = document.createElement ('li');<br>
+      &emsp;const nav_item_a = document.createElement ('a');<br>
+      &emsp;const nav_item_a_href = `#${i+1}`;<br>
+      &emsp;const nav_item_a_class = `nav_link`;<br>
+      &emsp;nav_item_a.textContent = name.textContent;<br>
+      &emsp;nav_item_a.setAttribute ('href', nav_item_a_href);<br>
+      &emsp;nav_item_a.setAttribute ('class', nav_item_a_class);<br>
+      &emsp;nav_item.appendChild (nav_item_a);<br>
+      &emsp;nav_bar.appendChild (nav_item);<br>
+      });<br>
+  </blockquote>
+</section>
+<section class="content_item light_back" id="section3">
+  <p class="name_in_the_menu">Scroll</p>
+  <h1>Scroll effects</h1>
+  <p class="content_text">For smooth scrolling effect I'm selecting all elements that have href=# parameter into anchor array.</p>
+  <blockquote class="content_code">
+  const anchor = Array.from(document.querySelectorAll('a[href^="#"]'));
+  </blockquote>
+  <p class="content_text">After I set up a click event listener on each of them, that firstly, prevents default action, secondly chooses the destination element and scrolls there using .scrollIntoView method with smooth behavior.</p>
+  <blockquote class="content_code">
+    anchor.forEach(anchor => {<br>
+    &emsp;anchor.addEventListener('click', function (scroll) {<br>
+    &emsp;&emsp;scroll.preventDefault();<br>
+    &emsp;&emsp;document.querySelector(anchor.getAttribute('href')).scrollIntoView({behavior: "smooth"});<br>
     &emsp;});<br>
-    </blockquote>
-  </li>
-</ul>
+    });
+  </blockquote>
+</section>
+<section class="content_item dark_back" id="section4">
+  <p class="name_in_the_menu">Hover</p>
+  <h1>Making menu visible while scrolling</h1>
+  <p class="content_text">I'm using event listener to find out if page is being scrolled and dynamically assign class "active" to navigation bar if so</p>
+  <p class="content_text">Another function, assigning class "hidden" to navigation bar is run with 1600 ms timeout to hide menu when user is not scrolling the page</p>
+  <blockquote class="content_code">
+  document.addEventListener ('scroll', function () {<br>
+  &emsp;nav_bar.setAttribute ('class', "nav_bar active");<br>
+  &emsp;&emsp;setTimeout(function(){<br>
+  &emsp;&emsp;&emsp;nav_bar.setAttribute ('class', "nav_bar hidden");<br>
+  &emsp;&emsp;}, 2600);<br>
+  &emsp;});<br>
+  </blockquote>
+</section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
 </body>
